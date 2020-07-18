@@ -18,6 +18,7 @@
 
 #ifndef AVS_LOG_H
 #define AVS_LOG_H    1
+
 /* libavs
  *
  * Log
@@ -33,7 +34,7 @@ enum log_level {
 typedef void (log_h)(uint32_t level, const char *msg, void *arg);
 
 struct log {
-    struct le *le;
+	struct le *le;
 	log_h *h;
 	void *arg;
 };

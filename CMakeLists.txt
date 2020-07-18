@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-#project(avs LANGUAGES CXX)
-project(avs)
+project(libAVSForAudioEffect)
 
 # Set version number.
 set(avs_VERSION_MAJOR 3)
@@ -58,7 +57,7 @@ if (NOT LIBWEBRTC_BINARY_PATH)
     message(FATAL_ERROR "LIBWEBRTC_BINARY_PATH not provided")
 endif ()
 
-message("\n=========== libavs Build Configuration ===========\n")
+message("\n=========== libAVSForAudioEffect Build Configuration ===========\n")
 #message(STATUS "MEDIASOUPCLIENT_BUILD_TESTS : " ${MEDIASOUPCLIENT_BUILD_TESTS})
 #message(STATUS "MEDIASOUPCLIENT_LOG_TRACE   : " ${MEDIASOUPCLIENT_LOG_TRACE})
 #message(STATUS "MEDIASOUPCLIENT_LOG_DEV     : " ${MEDIASOUPCLIENT_LOG_DEV})
@@ -87,6 +86,7 @@ set(
         src/sem/semaphore.c
         src/string/wordexp.c
         src/version/version.c
+        src/log/log.c
         )
 
 set(
@@ -119,18 +119,6 @@ file(GLOB_RECURSE HEADER_FILES_RE ${PROJECT_SOURCE_DIR}/contrib/re/src/*.h ${PRO
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES_C} ${SOURCE_FILES} ${SOURCE_FILES_RE} ${HEADER_FILES_RE})
 
 message("\n=========== 33333333 ===========\n")
-
-#if (${MEDIASOUPCLIENT_LOG_TRACE})
-#    target_compile_definitions(${PROJECT_NAME}
-#            PRIVATE MSC_LOG_TRACE=1
-#            )
-#endif ()
-#
-#if (${MEDIASOUPCLIENT_LOG_DEV})
-#    target_compile_definitions(${PROJECT_NAME}
-#            PRIVATE MSC_LOG_DEV=1
-#            )
-#endif ()
 
 # Source Dependencies.
 #add_subdirectory(re "${PROJECT_SOURCE_DIR}/contrib/re")
@@ -184,5 +172,5 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
         $<$<PLATFORM_ID:Darwin>:WEBRTC_MAC>
         )
 message("\n=========== 55555555 ===========\n")
-install(TARGETS avs DESTINATION lib)
-#install(FILES ${HEADER_FILES} DESTINATION include/avs)
+install(TARGETS libAVSForAudioEffect DESTINATION lib)
+#install(FILES ${HEADER_FILES} DESTINATION include/libAVSForAudioEffect)

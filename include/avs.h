@@ -41,7 +41,6 @@ extern "C" {
 #include "avs_log.h"
 #include "avs_msystem.h"
 #include "avs_string.h"
-#include "avs_version.h"
 #include "avs_audio_effect.h"
 
 #ifdef __cplusplus
